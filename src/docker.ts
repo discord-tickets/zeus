@@ -1,27 +1,15 @@
-import Dockerode from 'dockerode';
-// import stripAnsi from 'strip-ansi';
-
-export const docker = new Dockerode({ socketPath: '/var/run/docker.sock' });
+const unix = '/var/run/docker.sock';
 
 export async function tailLogs(lines: number): Promise<string> {
-	const container = docker.getContainer(process.env.CONTAINER_NAME as string);
-	const buffer = await container.logs({
-		stderr: true,
-		stdout: true,
-		tail: lines,
-	});
-	return buffer.toString('utf-8');
+	const url = `http://localhost/containers/${process.env.CONTAINER_NAME as string}/logs?stderr=true&stdout=true&tail=${lines}`;
+	const res = await fetch(url, { unix });
+	return await res.json();
 };
 
 export async function searchLogs(string: string, since: string, until: string): Promise<string[]> {
-	const container = docker.getContainer(process.env.CONTAINER_NAME as string);
-	const buffer = await container.logs({
-		since,
-		stderr: true,
-		stdout: true,
-		until,
-	});
-	const logs = buffer.toString('utf-8');
+	const url = `http://localhost/containers/${process.env.CONTAINER_NAME as string}/logs?stderr=true&stdout=true&since=${since}&until=${until}`;
+	const res = await fetch(url, { unix });
+	const logs = await res.json() as string;
 	const lines = logs.split('\n');
 	const index = lines.findIndex(line => line.includes(string));
 	if (index === -1) return [];

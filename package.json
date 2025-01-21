@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "discord.js": "^14.17.3",
-    "dockerode": "^4.0.4",
     "leekslazylogger": "^6.0.0",
     "short-unique-id": "^5.2.0"
   },
@@ -16,7 +15,6 @@
     "@eartharoid/eslint-rules-js": "^1.0.1",
     "@eslint/js": "^9.18.0",
     "@types/bun": "latest",
-    "@types/dockerode": "^3.3.34",
     "eslint": "^9.18.0",
     "globals": "^15.14.0",
     "typescript": "^5.7.3",
