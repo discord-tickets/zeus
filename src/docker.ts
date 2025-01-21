@@ -1,7 +1,7 @@
 import Dockerode from 'dockerode';
 // import stripAnsi from 'strip-ansi';
 
-export const docker = new Dockerode();
+export const docker = new Dockerode({ socketPath: '/var/run/docker.sock' });
 
 export async function tailLogs(lines: number): Promise<string> {
 	const container = docker.getContainer(process.env.CONTAINER_NAME as string);
