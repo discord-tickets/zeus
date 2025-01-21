@@ -1,8 +1,28 @@
 services:
-  zeus:
-    build: .
+  bot:
+    build:
+      context: node-bot/.
     env_file: .env
     tty: true
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+#   bot:
+#     build:
+#       context: bot/.
+#     env_file: .env
+#     tty: true
+#     restart: unless-stopped
+#     networks:
+#       - proxy
+#   proxy:
+#     build:
+#       context: proxy/.
+#     tty: true
+#     restart: unless-stopped
+#     networks:
+#       - proxy
+#     volumes:
+#       - /var/run/docker.sock:/var/run/docker.sock
+# networks:
+#   proxy:

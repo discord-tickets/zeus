@@ -1,0 +1,9 @@
+{
+	"name": "@discord-tickets/zeus-proxy",
+	"main": "src/index.js",
+	"type": "module",
+	"dependencies": {
+		"@whatwg-node/server": "^0.9.65",
+		"leekslazylogger": "^6.0.0"
+	}
+}
