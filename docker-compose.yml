@@ -1,0 +1,7 @@
+services:
+  zeus:
+    build: .
+    env_file: .env
+    tty: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
