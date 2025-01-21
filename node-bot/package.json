@@ -8,7 +8,6 @@
   "dependencies": {
     "discord.js": "^14.17.3",
     "dockerode": "^4.0.4",
-    "dotenv": "^16.4.7",
     "leekslazylogger": "^6.0.0",
     "short-unique-id": "^5.2.0"
   },

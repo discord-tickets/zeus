@@ -1,6 +1,3 @@
-import { config } from 'dotenv';
-config();
-
 import log from './logger.js';
 import { client } from './discord.js';
 
