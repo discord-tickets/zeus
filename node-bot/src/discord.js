@@ -56,8 +56,8 @@ client.on(Events.InteractionCreate, async interaction => {
 				const errorId = interaction.options.getString('error');
 				if (!errorId) throw new Error('No error ID provided');
 				const timestamp = uid.parseStamp(errorId).getTime();
-				const since = new Date(timestamp - 15e3).toISOString();
-				const until = new Date(timestamp + 15e3).toISOString();
+				const since = Math.floor(new Date(timestamp - 15e3).getTime() / 1000);
+				const until = Math.ceil(new Date(timestamp + 15e3).getTime() / 1000);
 				const lines = await searchLogs(errorId, since, until);
 				if (lines.length === 0) {
 					await interaction.editReply({
