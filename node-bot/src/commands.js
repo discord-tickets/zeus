@@ -4,6 +4,7 @@ export default [
 	new SlashCommandBuilder()
 		.setName('logs')
 		.setDescription('Search the logs of the public instance')
+		.setDefaultMemberPermissions(0)
 		.addSubcommand(subcommand =>
 			subcommand
 				.setName('search')
