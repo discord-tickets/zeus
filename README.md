@@ -13,3 +13,5 @@
 CONTAINER_NAME=
 DISCORD_TOKEN=
 ```
+> [!WARNING]
+> Make sure you restrict the bots slash commands to only your staff roles in the bots settings on your Discord server so only those you know can pull (potentially sensitive) Portainer/Docker logs
